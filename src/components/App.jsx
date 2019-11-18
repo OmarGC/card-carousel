@@ -39,7 +39,7 @@ export const App = () => {
       afterChange: currentSlide => hideArrow(currentSlide)
     };
     return (
-      <div style={{ width: '30%', margin: '0 auto' }}>
+      <div style={{ width: '250px', margin: '0 auto' }}>
         <h2> Single Item</h2>
         <Slider {...settings}>
           <div className="item" > <Card pokemon= "" /> </div>

@@ -29,7 +29,7 @@ const Card = ({pokemon}) => {
   );
   
   // let componet;
-  // if(image !== "") {
+  // if(image !== undefined && image !== null && image.length > 0 ? image) {
   //   componet = <img src={image} alt="Imagen Pokemon" />  
   // } else {
   // componet = <img src={imageError} style={{width: '100%', height: '100%'}} alt="Imagen Error"  />
