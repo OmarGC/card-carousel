@@ -1,0 +1,34 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.item {
+    height: 200px;
+    border: 1px solid violet;
+    background-color: rgba(26, 61, 58, 0.178);
+}
+
+.hideArrow {
+    display: none;
+}
+
+.nextArrow {
+    display: block;
+    position: absolute;
+    z-index: 2;
+    bottom: 45%;
+    left: 91%;
+    font-size: 40px;
+
+}
+
+.prevArrow{
+    display: block;
+    position: absolute;
+    z-index: 2;
+    bottom: 45%;
+    left: 5%;
+    font-size: 40px; 
+}
