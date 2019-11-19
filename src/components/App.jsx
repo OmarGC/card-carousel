@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { Fragment, useState } from 'react'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
@@ -10,7 +10,6 @@ export const App = () => {
   
     const [hideNextArrow, setHideNextArrow] = useState(false);
     const [hidePrevArrow, setHidePrevArrow] = useState(true);
-    const imageCargando="https://media1.tenor.com/images/d0d34942ccc4c3fc6fbd243ea6a70d6a/tenor.gif?itemid=12199060";
    
 
     const hideArrow = arrow => {
@@ -28,29 +27,48 @@ export const App = () => {
 
     const settings = {
       dots: true,
-      infinite: false,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      speed: 500,
-      initialSlide: 0,
       lazyLoad: true,
+      // fade: true,
+      infinite: true,
+      slidesToShow: 2,
+      slidesToScroll: 1,
+      speed: 900,
+      initialSlide: 0,
       nextArrow: <SampleNextArrow display={ hideNextArrow } />,
       prevArrow: <SamplePrevArrow  display={ hidePrevArrow } />,
-      afterChange: currentSlide => hideArrow(currentSlide)
+      afterChange: currentSlide => hideArrow(currentSlide),
+      responsive: [
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            initialSlide: 0
+          }
+ 
+        }
+      ]
     };
-    return (
-      <div style={{ width: '250px', margin: '0 auto' }}>
-        <h2> Single Item</h2>
-        <Slider {...settings}>
-          <div className="item" > <Card pokemon= "" /> </div>
-          <div className="item" > <Card pokemon= "latias" /> </div>
-          <div className="item" > <Card pokemon= "latios" /> </div>
-          <div className="item" > <Card pokemon= "gengar" /> </div>
-          <div className="item" > <Card pokemon= "rayquaza" />  </div>
-          <div className="item" > <Card pokemon= "machop" />  </div>
-        </Slider>
-      </div>
-    );
+
+    const renderComponent = () => {
+      return(
+        <Fragment>
+          <div style={{width: '70%', margin: '0 auto'}} >
+          <h2> Single Item</h2>
+          <Slider {...settings}>
+            <Card pokemon= "totodile" />         
+            <Card pokemon= "latias" />   
+            <Card pokemon= "latios" />   
+            <Card pokemon= "gengar" />   
+            <Card pokemon= "rayquaza" /> 
+            <Card pokemon= "machop" />   
+          </Slider>
+        </div>
+        </Fragment>
+      );
+    }
+
+    return( renderComponent() );
 
 }
 

@@ -7,6 +7,8 @@ const Card = ({pokemon}) => {
   const [namePokemon, setNamePokemon] = useState("");
   const imageError="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQiOG8evpw5vOWmGp4qSbNK6JvMyxIgbPRo-Ymnb53FazX3VGVW";
 
+  // const imageCargando="https://media1.tenor.com/images/d0d34942ccc4c3fc6fbd243ea6a70d6a/tenor.gif?itemid=12199060";
+
   const getData = name => {
     
     fetch(`http://pokeapi.co/api/v2/pokemon/${name}`)
@@ -29,25 +31,17 @@ const Card = ({pokemon}) => {
   );
   
   // let componet;
-  // if(image !== undefined && image !== null && image.length > 0 ? image) {
+  // if( image !== null && image.length > 0 && image !== undefined ) {
   //   componet = <img src={image} alt="Imagen Pokemon" />  
   // } else {
-  // componet = <img src={imageError} style={{width: '100%', height: '100%'}} alt="Imagen Error"  />
+  // componet = <img src={imageError} style={{width: '100%', height: '150px'}} alt="Imagen Error"  />
   // }
     
   return(
     <Fragment>
-      {
-        <img
-          src={
-            image !== undefined && image !== null && image.length > 0 ? image : imageError
-          }
-          style={
-            image !== undefined && image !== null && image.length > 0 ? null : { width: '100%', height: '100%' }
-          }
-          alt="Imagen Pokemon"
-        />  
-      }
+      <div className="item">
+        <img src={image !== null && image.length > 0 && image !== undefined ? image : imageError } style={{width: '100%', height: '100%'}} alt="Imagen Pokemon" /> 
+      </div>
     </Fragment>
   );
   
